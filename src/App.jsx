@@ -5,35 +5,25 @@ import Account from "./assets/Pages/Account";
 import Framework from "./assets/Pages/Framework";
 import Play from "./assets/Pages/Play";
 import "./Styles.css"
+import {Route,Routes} from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
 
 function App() {
 
-  let Component
-  switch(window.location.pathname){
-    case "/":
-      Component= Home
-      break
-    case "/Framework":
-      Component= Framework
-      break
-    case "/Play":
-      Component= Play
-      break
-    case "/Account":
-      Component= Accoun
-      break
-    case "/About":
-      Component=About
-      break
-
-  }
+  
+  
   return (
     <>
     <NavBar/>
-    <Component/>
+    <Routes>
+      <Route path="/" element={<Home></Home>}/>
+      <Route path="/Play" element={<Play></Play>}/>
+      <Route path="/Framework" element={<Framework></Framework>}/>
+      <Route path="/About" element={<About></About>}/>
+      <Route path="/Account" element={<Account></Account>}/>
+    </Routes>
     </>
     
   );
